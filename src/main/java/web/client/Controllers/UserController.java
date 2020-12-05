@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import web.client.User;
 import web.client.services.UserService;
 
 
@@ -29,5 +30,21 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @PostMapping("/add_user")
+    public String greetingSubmit(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
+            return "user/index";
+        }
+        user.setRoles("ROLE_Authorized");
+        user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
+        service.saveUser(user);
+        return "redirect:/index";
+    }
+
+    @GetMapping("/registration")
+    public String registration(Model model) {
+        model.addAttribute("user", new User());
+        return "user/registration";
+    }
 
 }
