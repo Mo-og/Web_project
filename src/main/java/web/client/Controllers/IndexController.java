@@ -17,12 +17,13 @@ public class IndexController {
 
 
     @GetMapping("/")
-    public String entrance(Principal principal) {
+    public String index(Principal principal) {
         try{
             final UserDetails user = userService.loadUserByUsername(principal.getName());
+
             switch(user.getAuthorities().toString()) {
                 case "[ROLE_Authorized]":
-                    return "AuthorizedUser/index";
+                    return "authorized_user/index";
                 default: System.out.println(user.getAuthorities().toString());
             }
         }

@@ -21,11 +21,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userDetailsService;
 
-    @Bean
-    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
-        return new MySimpleUrlAuthenticationSuccessHandler();
-    }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
@@ -36,11 +31,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/", "static/css", "static/js").permitAll().
                 antMatchers("/User/**").permitAll().
-                antMatchers("/AuthorizedUser/**").hasRole("Authorized")
-                .and().formLogin().loginPage("/entrance")
-                .successHandler(myAuthenticationSuccessHandler()).
+                antMatchers("/authorized_user/**").hasRole("Authorized")
+                .and().formLogin().loginPage("/entrance").
                 failureUrl("/entrance?error=true");
-
     }
 
     @Bean

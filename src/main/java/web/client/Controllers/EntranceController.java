@@ -29,6 +29,6 @@ public class EntranceController {
         if (result.hasErrors()) {
             return "User/entrance";
         }
-        return "User/entrance";
+        return "authorized_user/index";
     }
 }
