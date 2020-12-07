@@ -39,7 +39,10 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-has-children"><a href="">Каталог</a>
+                    <li class="menu-active"><a th:href="@{/}">Главная</a></li>
+                    <li class="menu-has-children"><a href="@{/catalog}">Каталог</a>
+                    <li><a href="#blog">Блог</a></li>
+                    <li><a href="#contact">Связаться с нами</a></li>
                     <li><a th:href="@{/entrance}">Вход</a></li>
                     <li><a th:href="@{/registration}">Регистрация</a></li>
                     </li>
@@ -60,7 +63,7 @@
                 <p class="text-white">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br> or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
                 </p>
-                <a href="#" class="primary-btn header-btn text-uppercase">Перейти в меню</a>
+                <a href="@{/catalog}" class="primary-btn header-btn text-uppercase">Перейти в каталог</a>
             </div>
         </div>
     </div>
@@ -72,7 +75,7 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Our Top Rated Dishes</h1>
+                    <h1 class="mb-10">Наш топ заказов</h1>
                     <p>Who are in extremely love with eco friendly system.</p>
                 </div>
             </div>
@@ -112,7 +115,7 @@
 <section class="video-area">
     <div class="container">
         <div class="row justify-content-center align-items-center flex-column">
-            <a class="play-btn" href="http://www.youtube.com/watch?v=0O2aH4XLbto">
+            <a class="play-btn" href="https://www.youtube.com/watch?v=_tys0GjiDNI">
                 <img src="../img/play-btn.png" alt="">
             </a>
             <h3 class="pt-20 pb-20 text-white">We Always serve the vaping hot and delicious foods</h3>
@@ -209,7 +212,7 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Latest From Our Blog</h1>
+                    <h1 class="mb-10">Последнее из нашего блога</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore magna aliqua.</p>
                 </div>
             </div>
