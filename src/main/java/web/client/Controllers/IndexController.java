@@ -14,8 +14,6 @@ public class IndexController {
     @Autowired
     UserService userService;
 
-
-
     @GetMapping("/")
     public String index(Principal principal) {
         try{
@@ -32,6 +30,4 @@ public class IndexController {
         }
         return  "User/index";
     }
-
-
 }

@@ -29,78 +29,6 @@ public class User {
     @Email(message = "Адрес электронной почты должен быть действительным")
     private String email;
     private String roles;
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        this.roles = roles;
-    }
-
 
 
     public User(@Pattern(regexp = "(\\+)?\\d{12}", message = "Номер телефона должен состоять из 12 цифр, включая код страны") String username, @Size(max = 500, min = 6, message = "Пароль должен быть в пределах 6-50 символов!") String password, @Pattern(regexp = "[ A-Za-zА-Яа-яЁё]{2,100}", message = "Имя должно содержать только буквы (латинские или русские) и быть в пределах 2-100 символов.") String name, @Pattern(regexp = "[ A-Za-zА-Яа-яЁё]{2,100}", message = "Фамилия должна содержать только буквы (латинские или русские) и быть в пределах 2-100 символов.") String surname, @Pattern(regexp = "[ A-Za-zА-Яа-яЁё]{2,100}", message = "Отчество должно содержать только буквы (латинские или русские) и быть в пределах 2-100 символов.") String patronymic, String address, @Email(message = "Адрес электронной почты должен быть действительным") String email, String roles) {
@@ -114,9 +42,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User() {
-
-    }
+    public User() {}
 
     @Override
     public String toString() {

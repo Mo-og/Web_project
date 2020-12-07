@@ -1,11 +1,13 @@
-package web.client;
+package web.client.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import web.client.MyUserDetails;
 import web.client.Repositories.UserRepository;
+import web.client.User;
 
 import java.util.Optional;
 

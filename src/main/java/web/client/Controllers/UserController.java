@@ -64,5 +64,4 @@ public class UserController {
         service.saveUser(user);
         return "redirect:/entrance";
     }
-
 }

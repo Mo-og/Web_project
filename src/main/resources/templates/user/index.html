@@ -14,7 +14,7 @@
     <!-- meta character set -->
     <meta charset="UTF-8">
     <!-- Site Title -->
-    <title>Restaurant</title>
+    <title>Главная</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
@@ -39,15 +39,12 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a th:href="@{/}">Home</a></li>
-                    <li><a href="#dish">Dish</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li class="menu-has-children"><a href="">Каталог</a>
                     <li><a th:href="@{/entrance}">Вход</a></li>
                     <li><a th:href="@{/registration}">Регистрация</a></li>
                     </li>
                 </ul>
-            </nav><!-- #nav-menu-container -->
+            </nav>
         </div>
     </div>
 </header><!-- #header -->
@@ -56,14 +53,14 @@
     <div class="container">
         <div class="row fullscreen d-flex align-items-center justify-content-start">
             <div class="banner-content col-lg-8 col-md-12">
-                <h4 class="text-white text-uppercase">Wide Options of Choice</h4>
+                <h4 class="text-white text-uppercase">Добро пожаловать</h4>
                 <h1>
-                    Delicious Receipes
+                    Широкий выбор блюд
                 </h1>
                 <p class="text-white">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br> or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
                 </p>
-                <a href="#" class="primary-btn header-btn text-uppercase">Check Our Menu</a>
+                <a href="#" class="primary-btn header-btn text-uppercase">Перейти в меню</a>
             </div>
         </div>
     </div>
@@ -130,28 +127,28 @@
             <div class="row">
                 <div class="single-feature col-lg-3 col-md-6">
                     <img src="../img/f1.png" alt="">
-                    <h4 class="pt-20 pb-20">Refreshing Breakfast</h4>
+                    <h4 class="pt-20 pb-20">Бодрящий завтрак</h4>
                     <p>
                         Lorem ipsum dolor sit ametcons ecteturadipis icing elit.
                     </p>
                 </div>
                 <div class="single-feature col-lg-3 col-md-6">
                     <img src="../img/f2.png" alt="">
-                    <h4 class="pt-20 pb-20">Awesome Lunch</h4>
+                    <h4 class="pt-20 pb-20">Прекрасный ланч</h4>
                     <p>
                         Lorem ipsum dolor sit ametcons ecteturadipis icing elit.
                     </p>
                 </div>
                 <div class="single-feature col-lg-3 col-md-6">
                     <img src="img/f3.png" alt="">
-                    <h4 class="pt-20 pb-20">Soothing Dinner</h4>
+                    <h4 class="pt-20 pb-20">Питательный обед</h4>
                     <p>
                         Lorem ipsum dolor sit ametcons ecteturadipis icing elit.
                     </p>
                 </div>
                 <div class="single-feature col-lg-3 col-md-6">
                     <img src="../img/f4.png" alt="">
-                    <h4 class="pt-20 pb-20">Rich Quality Buffet</h4>
+                    <h4 class="pt-20 pb-20">Шведский Стол</h4>
                     <p>
                         Lorem ipsum dolor sit ametcons ecteturadipis icing elit.
                     </p>
@@ -166,7 +163,7 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Our Featured Food Menus</h1>
+                    <h1 class="mb-10">Популярные блюда</h1>
                     <p>Who are in extremely love with eco friendly system.</p>
                 </div>
             </div>
@@ -283,12 +280,12 @@
 </section>
 
 
-<footer class="footer-area section-gap" id = "contact">
+<footer class="footer-area section-gap">
     <div class="container">
         <div class="row">
             <div class="col-lg-3  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h4 class="text-white">About Us</h4>
+                    <h4 class="text-white">О нас</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
                     </p>
@@ -296,7 +293,7 @@
             </div>
             <div class="col-lg-4  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h4 class="text-white">Contact Us</h4>
+                    <h4 class="text-white">Связаться с нами</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna aliqua.
                     </p>
@@ -308,7 +305,7 @@
             </div>
             <div class="col-lg-5  col-md-6 col-sm-6">
                 <div class="single-footer-widget">
-                    <h4 class="text-white">Newsletter</h4>
+                    <h4 class="text-white">Рассылка</h4>
                     <p>You can trust us. we only send  offers, not a single spam.</p>
                     <div class="d-flex flex-row" id="mc_embed_signup">
 
