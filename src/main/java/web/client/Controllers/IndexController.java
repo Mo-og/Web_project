@@ -26,8 +26,8 @@ public class IndexController {
             }
         }
         catch (NullPointerException e) {
-            return  "User/index";
+            return  "user/index";
         }
-        return  "User/index";
+        return  "user/index";
     }
 }

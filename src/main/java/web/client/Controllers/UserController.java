@@ -51,12 +51,12 @@ public class UserController {
     @PostMapping("/registration")
     public String validateEntrance(@Valid User user, BindingResult result) {
         if (result.hasErrors()) {
-            return "User/registration";
+            return "user/registration";
         }
 
         for(User u : service.getAllUsers()) {
             if(u.getUsername().equals(user.getUsername())) {
-                return "User/registration";
+                return "user/registration";
             }
         }
         user.setRoles("ROLE_Authorized");

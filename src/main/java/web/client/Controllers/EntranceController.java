@@ -16,18 +16,18 @@ public class EntranceController {
     @GetMapping("/entrance")
     public String getEntrance(Model model) {
         model.addAttribute("entrance", new EntranceForm());
-        return "User/entrance";
+        return "user/entrance";
     }
 
     @GetMapping("/logout")
     public String logOut() {
-        return "User/index";
+        return "user/index";
     }
 
     @PostMapping("/entrance")
     public String validateEntrance(@Valid EntranceForm entrance, BindingResult result) {
         if (result.hasErrors()) {
-            return "User/entrance";
+            return "user/entrance";
         }
         return "authorized_user/index";
     }
