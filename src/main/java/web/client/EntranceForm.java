@@ -13,7 +13,9 @@ public class EntranceForm {
 
     public EntranceForm(String username, String password) {
         if (username.contains("+"))
-            username.replace("+","");
+            username=username.replace("+","");
+        if (username.startsWith("380"))
+            username=username.replaceFirst("38","");
         this.username = username;
         this.password = password;
     }
@@ -25,6 +27,10 @@ public class EntranceForm {
     }
 
     public void setUsername(String username) {
+        if (username.contains("+"))
+            username=username.replace("+","");
+        if (username.startsWith("380"))
+            username=username.replaceFirst("38","");
         this.username = username;
     }
 

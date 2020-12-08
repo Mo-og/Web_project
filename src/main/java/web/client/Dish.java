@@ -15,7 +15,7 @@ public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private long categoryId;
+    private String category;
     @NotBlank(message = "У блюда должно быть название!")
     private String name;
     @Range(min = 1, message = "Масса блюда не может быть меньше 1!")

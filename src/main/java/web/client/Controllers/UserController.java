@@ -2,22 +2,17 @@ package web.client.Controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import web.client.EntranceForm;
 import web.client.User;
-import web.client.services.UserService;
+import web.client.Services.UserService;
 
 
 import javax.validation.Valid;
-import java.security.Principal;
-import java.util.NoSuchElementException;
 
 @Controller
 public class UserController {
@@ -40,8 +35,8 @@ public class UserController {
 
     @GetMapping("/supersecretrequest7355")
     public String addAdmin(Model model) {
-        User user = new User("admin", "admin", "admin", "ggg", "address", "password", "a@b.c","Role_Authorized");
-        user.setRoles("ROLE_Authorized");
+        User user = new User("admin", "admin", "admin", "ggg", "address", "password", "a@b.c","Role_Admin");
+        user.setRoles("ROLE_Admin");
         user.setPassword(new BCryptPasswordEncoder().encode("74553211"));
         service.saveUser(user);
 
@@ -59,7 +54,7 @@ public class UserController {
                 return "user/registration";
             }
         }
-        user.setRoles("ROLE_Authorized");
+        user.setRoles("ROLE_Client");
         user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         service.saveUser(user);
         return "redirect:/entrance";

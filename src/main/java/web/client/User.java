@@ -14,7 +14,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Pattern(regexp = "(\\+)?\\d{12}", message = "Номер телефона должен состоять из 12 цифр, включая код страны")
+    @Pattern(regexp = "(\\+)?\\d{12}", message = "Мобильный номер телефона должен быть действительным")
     private String username; //phone
     @Size(max = 500, min = 6, message = "Пароль должен быть в пределах 6-50 символов!")
     private String password;
@@ -43,6 +43,15 @@ public class User {
     }
 
     public User() {}
+
+    public void setUsername(String username) {
+        String usernameCorrected = username;
+        if (username.contains("+"))
+            usernameCorrected = username.replace("+", "");
+        if(username.startsWith("380"))
+            usernameCorrected = usernameCorrected.replaceFirst("38","");
+        this.username=usernameCorrected;
+    }
 
     @Override
     public String toString() {

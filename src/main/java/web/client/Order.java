@@ -31,7 +31,7 @@ public class Order {
         sales.sort(Comparator.comparingInt(Sale::getQuantity).reversed());
     }
 
-    public Sale getDetailsIfPresent(long id) {
+    public Sale getSalesIfPresent(long id) {
         return sales.stream().filter(i -> i.getDish_id() == id).findFirst().orElse(null);
     }
 
@@ -85,7 +85,7 @@ public class Order {
 
     public void addSale(Sale sale) {
         if (sales == null) sales = new ArrayList<>();
-        Sale presented = getDetailsIfPresent(sale.getDish_id());
+        Sale presented = getSalesIfPresent(sale.getDish_id());
         if (presented != null) {
             int newQuantity = sale.getQuantity() + presented.getQuantity();
             if (newQuantity == 0) {

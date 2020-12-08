@@ -40,11 +40,10 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a th:href="@{/}">Главная</a></li>
-                    <li class="menu-has-children"><a href="@{/catalog}">Каталог</a>
+                    <li class="menu-has-children"><a th:href="@{/catalog}">Каталог</a>
                     <li><a href="#blog">Блог</a></li>
                     <li><a href="#contact">Связаться с нами</a></li>
-                    <li><a href="@{/logout}">Выйти</a></li>
-                    </li>
+                    <li><a th:href="@{/logout}">Выйти</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -62,7 +61,7 @@
                 <p class="text-white">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temp <br> or incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
                 </p>
-                <a href="@{/catalog}" class="primary-btn header-btn text-uppercase">Перейти в каталог</a>
+                <a th:href="@{/catalog}" class="primary-btn header-btn text-uppercase">Перейти в каталог</a>
             </div>
         </div>
     </div>

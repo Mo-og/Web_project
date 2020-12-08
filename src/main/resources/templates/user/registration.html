@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" class="no-js" >
+<html lang="en" xmlns:th="http://www.thymeleaf.org" class="no-js">
 <head>
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,13 +36,12 @@
     <div class="container">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a th:href="@{/}"><img src="../img/logo.png" alt="" title="" /></a>
+                <a th:href="@{/}"><img src="../img/logo.png" alt="" title=""/></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a th:href="@{/}"><span style="color: #ff7f50;">На главную</span></a></li>
                     <li><a th:href="@{/entrance}"><span style="color: #ff7f50;">Вход</span></a></li>
-                    </li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -50,15 +49,14 @@
 </header><!-- #header -->
 
 
-
 <footer class="footer-area section-gap">
-    <div class="container" align = "center">
+    <div class="container" align="center">
         <div class="title text-center">
             <h1 class="mb-10"><span style="color: #ff7f50;">Регистрация</span></h1>
         </div>
-        <div class="row" align = "center">
-            <div class="col-lg-12 col-md-12 col-sm-12" align = "center">
-                <form enctype="multipart/form-data"   th:object="${user}"  method="post"
+        <div class="row" align="center">
+            <div class="col-lg-12 col-md-12 col-sm-12" align="center">
+                <form enctype="multipart/form-data" th:object="${user}" method="post"
                       class="needs-validation"><br><br><br><br>
                     <div class="row">
                         <div class="col-md-12">
@@ -68,7 +66,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="surname">Фамилия</label>
                                     <input th:field="*{surname}" type="text" class="form-control" id="surname"
-                                           placeholder="2 - 50 букв"
+                                           placeholder="2 - 100 букв"
                                            value="" required>
                                     <small class="text-danger" th:if="${#fields.hasErrors('surname')}"
                                            th:errors="*{surname}"></small>
@@ -77,7 +75,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="name">Имя</label>
                                     <input th:field="*{name}" type="text" class="form-control" id="name"
-                                           placeholder="2 - 50 букв"
+                                           placeholder="2 - 100 букв"
                                            value="" required>
                                     <small class="text-danger" th:if="${#fields.hasErrors('name')}"
                                            th:errors="*{name}"></small>
@@ -86,7 +84,7 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="patronymic">Отчество</label>
                                     <input th:field="*{patronymic}" type="text" class="form-control" id="patronymic"
-                                           placeholder="2 - 50 букв"
+                                           placeholder="2 - 100 букв"
                                            value="" required>
                                     <small class="text-danger" th:if="${#fields.hasErrors('patronymic')}"
                                            th:errors="*{patronymic}"></small>
@@ -97,7 +95,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="email">Электронная почта</label>
                                     <input th:field="*{email}" type="email" class="form-control" id="email"
-                                           placeholder="name@example.com" value="" required>
+                                           placeholder="mail@example.com" value="" required>
                                     <small class="text-danger" th:if="${#fields.hasErrors('email')}"
                                            th:errors="*{email}"></small>
                                 </div>
@@ -106,7 +104,7 @@
                                 <div class="col-md-6 mb-3">
                                     <label for="username">Телефон</label>
                                     <input th:field="*{username}" type="text" class="form-control" id="username"
-                                           placeholder="5 - 14 цифр" value="" required>
+                                           placeholder="+380981234567" value="+38" required>
                                     <small class="text-danger" th:if="${#fields.hasErrors('username')}"
                                            th:errors="*{username}"></small>
                                 </div>
@@ -130,20 +128,23 @@
                             </div>
                             <button class="btn btn-primary btn-lg" type="submit" value="Submit">Зарегистрироваться
                             </button>
-                            </div>
-                            </div>
+                        </div>
+                    </div>
                 </form>
                 <br><br>
 
-        </div>
+            </div>
         </div>
     </div>
 </footer>
 
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
 <script src="js/easing.min.js"></script>
 <script src="js/hoverIntent.js"></script>
 <script src="js/superfish.min.js"></script>
