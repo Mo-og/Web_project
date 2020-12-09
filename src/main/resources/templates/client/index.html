@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" class="no-js" >
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" class="no-js" >
 <head>
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,9 +41,14 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a th:href="@{/}">Главная</a></li>
                     <li class="menu-has-children"><a th:href="@{/catalog}">Каталог</a>
+                    <li class="menu-has-children"><a th:href="@{/orders}">Заказы</a>
+                    <li class="menu-has-children"><a th:href="@{/user_edit}">Личный кабинет</a>
                     <li><a href="#blog">Блог</a></li>
                     <li><a href="#contact">Связаться с нами</a></li>
-                    <li><a th:href="@{/logout}">Выйти</a></li>
+                    <li>
+                        <a onclick="return confirm('Вы уверены, что хотите выйти из личного кабинета?');"
+                           th:href="@{/logout}">Выйти</a>
+                    </li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

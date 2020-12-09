@@ -55,7 +55,7 @@
     <script>$(document).ready(function() {
         $.fn.dataTable.moment( 'D-MM-YYYY H:m:s' );
 
-        $('#myTable').DataTable( {
+        $('#table').DataTable( {
             language: {url: "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Russian.json"},
             "pageLength": 15,
         });
@@ -73,7 +73,6 @@
                 <ul class="nav-menu">
                     <li class="menu-active"><a th:href="@{/}">Главная</a></li>
                     <li><a th:href="@{/orders}">Заказы</a></li>
-                    <li><a th:href="@{/edit_user}">Личный кабинет</a></li>
                     <li>
                         <a onclick="return confirm('Вы уверены, что хотите выйти из личного кабинета?');"
                            th:href="@{/logout}">Выйти</a>
@@ -88,11 +87,19 @@
     <div class="container pr">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> <br><br>
-                <h1 class="block-title text-align-center">Меню</h1>
-                <br><br><br>
+                <h2 class="block-title text-align-center"><span class="side-img left-side-img"><i></i><i></i><i></i></span>
+                    Меню<span class="side-img right-side-img"><i></i><i></i><i></i></span></h2>
+                <br>
+                <a th:href="@{/add_dish}"
+                   class="btn btn-lg btn-block btn-outline-primary" role="button" aria-disabled="true">Добавить
+                    блюдо</a>
+                <br>
+                <h4 class="block-title text-align-center">Для редактирования конкретного продукта, кликните по нему в
+                    списке ниже<i></i><i></i><i></i>
+                </h4>
                 <form class="reservation-block">
                     <div class="table-responsive">
-                        <table id="myTable" class="table table-striped">
+                        <table id="table" class="table table-striped">
                             <thead>
                             <tr>
                                 <th class="text-justify">#</th>
@@ -104,7 +111,8 @@
                             </thead>
                             <tbody>
 
-                            <tr th:each="dish, state : ${dishes}">
+                            <tr th:each="dish, state : ${dishes}" style="cursor: pointer"
+                                th:onclick="'javascript:rowClicked(\'' + ${dish.id} + '\');'">
                                 <td class="align-middle"><span th:text="${state.count}"></span></td>
                                 <td class="align-middle"><span th:text="${dish.category}"></span></td>
                                 <td class="align-middle"><span th:text="${dish.name}"></span></td>
@@ -148,9 +156,7 @@
                     <h4 class="text-white">Рассылка</h4>
                     <p>You can trust us. we only send  offers, not a single spam.</p>
                     <div class="d-flex flex-row" id="mc_embed_signup">
-
-
-                        <form class="navbar-form" novalidate="true" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
+                        <form class="navbar-form" novalidate action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get">
                             <div class="input-group add-on">
                                 <input class="form-control" name="EMAIL" placeholder="Email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required="" type="email">
                                 <div style="position: absolute; left: -5000px;">
@@ -180,5 +186,10 @@
         </div>
     </div>
 </footer>
+<script>
+    function rowClicked(value) {
+        location.href = "dish_edit?id=" + value;
+    }
+</script>
 </body>
 </html>

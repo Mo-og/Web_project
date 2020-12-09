@@ -76,15 +76,13 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a th:href="@{/}">Главная</a></li>
-                    <li><a th:href="@{/orders}">Заказы</a></li>
                     <li><a th:href="@{/registration}">Регистрация</a></li>
-                    <li><a th:href="@{/logout}">Выход</a></li>
                 </ul>
             </nav>
         </div>
     </div>
 </header><!-- #header -->
-
+<br><br>
 <section class="reservation-block pad-top-100 pad-bottom-100">
     <div class="container pr">
         <div class="row">
@@ -97,8 +95,8 @@
                             <thead>
                             <tr>
                                 <th class="text-justify">#</th>
-                                <th class="text-justify">Название</th>
                                 <th class="text-justify">Категория</th>
+                                <th class="text-justify">Название</th>
                                 <th class="text-justify">Цена</th>
                                 <th class="text-justify">Примечание</th>
                             </tr>
@@ -107,8 +105,8 @@
 
                             <tr th:each="dish, state : ${dishes}">
                                 <td class="align-middle"><span th:text="${state.count}"></span></td>
-                                <td class="align-middle"><span th:text="${dish.name}"></span></td>
                                 <td class="align-middle"><span th:text="${dish.category}"></span></td>
+                                <td class="align-middle"><span th:text="${dish.name}"></span></td>
                                 <td class="align-middle"><span th:text="${dish.price}"></span></td>
                                 <td class="align-middle" style="font-size: 0.4rem"><span th:text="${dish.info}"></span></td>
                             </tr>

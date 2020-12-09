@@ -42,7 +42,7 @@ public class OrderController {
 
             switch (user.getAuthorities().toString()) {
                 case "[ROLE_Admin]":
-                    return "admin/orders";
+                    return "client/orders";//todo admin/orders
                 case "[ROLE_Client]":
                     return "client/orders";
                 default:
@@ -60,7 +60,10 @@ public class OrderController {
         order.setDateOrdered(new Date(System.currentTimeMillis()));
         service.saveOrder(order);
         Order newOrder=service.getByDateOrdered(order.getDateOrdered());
-        return "redirect:/edit_order?id="+newOrder.getId();
+        model.addAttribute("order",order);
+        model.addAttribute("dishes", CatalogController.getAllDishes());
+        model.addAttribute("container",new Order());
+        return "redirect:/order_edit?id="+newOrder.getId();
     }
 
 
@@ -90,14 +93,6 @@ public class OrderController {
         return "client/edit_order";
     }
 
-
-    @GetMapping("/change_status")
-    public String editStatus(Model model, @RequestParam Long id) {
-        Order order = service.getById(id);
-        model.addAttribute("order", order);
-        model.addAttribute("dishes", CatalogController.getAllDishes());
-        return "admin/change_status";
-    }
 
     @GetMapping("/order_remove")
     public String removeOrder(Model model, @RequestParam Long id) {

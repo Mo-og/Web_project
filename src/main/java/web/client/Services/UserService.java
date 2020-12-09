@@ -43,6 +43,14 @@ public class UserService implements UserDetailsService {
         return repository.existsById(id);
     }
 
+    public User getByUsername(String username) {
+        Optional temp = repository.findByUsername(username);
+        if (temp.isPresent())
+            return (User) temp.get();
+        else return null;
+    }
+
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> user = repository.findByUsername(username);

@@ -84,7 +84,7 @@ public class CatalogController {
         }
         service.saveDish(dish);
         System.out.println("Обновлено " + dish);
-        return "redirect:/menu";
+        return "redirect:/catalog";
     }
 
     @PostMapping("/add_dish")
@@ -94,7 +94,7 @@ public class CatalogController {
             return "admin/add_dish";
         }
         service.saveDish(dish);
-        return "redirect:/menu";
+        return "redirect:/catalog";
     }
 
     @GetMapping("/dish_remove")
@@ -102,6 +102,6 @@ public class CatalogController {
         if (!service.existsWithId(id))
             throw new NoSuchElementException();
         service.removeById(id);
-        return "redirect:/menu";
+        return "redirect:/catalog";
     }
 }

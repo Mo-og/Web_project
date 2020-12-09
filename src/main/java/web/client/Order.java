@@ -51,17 +51,17 @@ public class Order {
     public String getStatus() {
         if (isDone) return "Выполнен";
         boolean inProcess = false;
-        boolean isNew = false;
+        boolean isNew = true;
         boolean isFinished = false;
         for (Sale sale : sales) {
             if (sale.getStatus() == 1)
                 inProcess = true;
-            else if (sale.getStatus() == 0)
-                isNew = true;
+            else if (sale.getStatus() != 0)
+                isNew = false;
             else isFinished = true;
         }
         int currentCase =
-                isNew && !inProcess && !isFinished ? 0 :
+                isNew ? 0 :
                         (inProcess && !isFinished ? 1 :
                                 (inProcess && isFinished ? 2 : 3));
         switch (currentCase) {

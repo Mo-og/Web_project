@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Изменение данных заказа</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../img/fav.png">
+    <!-- Author Meta -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/linearicons.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/magnific-popup.css">
+    <link rel="stylesheet" href="../css/nice-select.css">
+    <link rel="stylesheet" href="../css/animate.min.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <!-- Jquery Js -->
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/element.js"></script>
+    <script type="text/javascript" src="../js/modernizr.js"></script>
+    <script type="text/javascript" src="../js/owl.carousel.js"></script>
+    <script type="text/javascript" src="../js/jquery.localscroll-1.2.7-min.js"></script>
+    <script type="text/javascript" src="../js/wow.min.js"></script>
+    <script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
+    <script type="text/javascript" src="../js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="../js/moment-with-locales.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js" ></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.16/sorting/datetime-moment.js"></script>
+
+    <script>$(document).ready(function() {
+        $.fn.dataTable.moment( 'D-MM-YYYY H:m:s' );
+
+        $('#table').DataTable( {
+            language: {url: "https://cdn.datatables.net/plug-ins/1.10.21/i18n/Russian.json"},
+            "pageLength": 15,
+        });
+    } );
+    </script>
+</head>
+<body>
+<script>
+    function clickedToDelete(dish_id, order_id) {
+        var sured = confirm("Вы уверены, что хотите удалить блюдо №" + dish_id + " из заказа?");
+        if (sured) {
+            // form.submit();
+            document.location.href = "dish_exclude?dish_id=" + dish_id + "&order_id=" + order_id;
+        }
+    }
+
+    function clickedToEdit(dish_id, order_id) {
+        document.location.href = "order_dish_edit?dish_id=" + dish_id + "&order_id=" + order_id;
+    }
+
+    function remove(id) {
+        var sured = confirm("Вы уверены, что хотите удалить заказ №" + id + "? Это действие невозможно отменить!");
+        if (sured) {
+            location.href = "order_remove?id=" + id;
+        }
+    }
+
+    function PopUpShow(id) {
+        document.getElementById(id).style.display = 'block';
+        //$('#' + id).show();
+    }
+
+    function PopUpHide(id) {
+        document.getElementById(id).style.display = 'none';
+        //$('#' + id).hide();
+    }
+</script>
+<header id="header" class="home">
+    <div class="container">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a th:href="@{/}"><img src="../img/logo.png" alt="" title="" /></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a th:href="@{/}">Главная</a></li>
+                    <li><a th:href="@{/orders}">Заказы</a></li>
+                    <li>
+                        <a onclick="return confirm('Вы уверены, что хотите выйти из личного кабинета?');"
+                           th:href="@{/logout}">Выйти</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header><!-- #header -->
+<br><br>
+<div class="b-popup-content">
+    <h3 class="block-title text-align-center">Изменение заказа</h3>
+    <form class="reservation-block" enctype="multipart/form-data" th:action="@{/order_dish_edit}"
+          method="post">
+        <div class="container">
+            <div class="col-md-12" align="center">
+                <div class="row">
+                    <div class="col mb-3" align="left">
+                        <h4><label for="dish">Блюдо</label></h4>
+                        <select th:object="${container}" th:field="*{dish_id}" th:default="${container.dish_id}" class="form-control" id="dish"
+                                required>
+                            <option th:each="dish_row : ${dishes}"
+                                    th:value="${dish_row.id}" th:text="${dish_row.name}"></option>
+                        </select>
+                    </div>
+                    <div class="col mb-3" align="left">
+                        <h4><label for="quantity">Количество</label></h4>
+                        <input type="number" class="form-control" id="quantity" name="quantity"
+                               th:value="${container.quantity}" required>
+                        <!--<small class="text-danger" th:if="${#fields.hasErrors('num')}"
+                               th:errors="*{new_dish.quantity}"></small>-->
+                    </div>
+                    <br>
+                    <input th:object="${container}" type="number" id="order_id" name="order_id" class="form-control"
+                           hidden style="display:none;" th:value="${order.id}">
+                    <input th:object="${container}" type="number" id="id" name="id" class="form-control"
+                           hidden style="display:none;" th:value="${container.id}">
+                </div>
+                <hr class="mb-4">
+                <div class="row">
+                    <div class="col-8 col-md-6">
+                        <button class="btn btn-warning btn-lg btn-block" type="submit" value="Submit">
+                            Применить изменения
+                        </button>
+                    </div>
+                    <div class="col-8 col-md-6">
+                        <button th:onclick="'javascript:clickedToEdit(\'' + ${container.dish_id} + '\', \'' + ${order.id}+'\' );'" type="button"
+                                class="btn btn-secondary btn-lg btn-block">
+                            Удалить продукт из заказа
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!-- Jquery Js -->
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/element.js"></script>
+<script type="text/javascript" src="../js/modernizr.js"></script>
+<script type="text/javascript" src="../js/owl.carousel.js"></script>
+<script type="text/javascript" src="../js/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="../js/wow.min.js"></script>
+<script type="text/javascript" src="../js/imagesloaded.pkgd.min.js"></script>
+<script type="text/javascript" src="../js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="../js/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="../js/jquery.magnific-popup.js"></script>
+<script type="text/javascript" src="../js/moment-with-locales.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js"></script>
+</body>
+</html>

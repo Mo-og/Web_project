@@ -16,7 +16,7 @@ public class Sale {
     @Column(insertable = false, updatable = false)
     private long order_id = -1;
     private int quantity;
-    private int status;//0-new 1-inprocess 2-completed
+    private int status=0;//0-new 1-inprocess 2-completed
 
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "dish_id")
